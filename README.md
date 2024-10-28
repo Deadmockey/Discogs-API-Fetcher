@@ -1,0 +1,1 @@
+# Simple Discogs API Fetcher

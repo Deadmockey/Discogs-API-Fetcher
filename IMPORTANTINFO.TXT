@@ -1,2 +1,3 @@
-Open the .env.example and replace the text with your API key
+In order for the program to work you must
+open the .env.example and replace the text with your API key 
 then change the .env.example file to just .env

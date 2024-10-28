@@ -1,0 +1,2 @@
+Open the .env.example and replace the text with your API key
+then change the .env.example file to just .env

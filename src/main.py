@@ -8,7 +8,13 @@ def check_env():
     WIP
     checks if the user has added their token to the .env
     """
-    pass
+
+    if not (os.path.isfile(f"{os.path.dirname(os.path.abspath(__file__))}\\.env")):
+        print(
+            "The .env file is not detected in root folder\nRefer to IMPORTANTINFO.txt"
+        )
+        pause = input("\nPress <ENTER> to exit...")
+        exit()
 
 
 def user_input(client: discogs_client.Client) -> discogs_client.Release:
@@ -52,8 +58,8 @@ def print_to_format(user_release: discogs_client.Release) -> None:
     print("\n==========================================")
     print("\nDescription:")
     print(f"\nReleased - {user_release.year}")
-    print(f"\nLabel - {user_release.labels[0].name}\n")
-    for i, track in enumerate(user_release.tracklist):
+    print(f"\nLabel - {user_release.labels[0].name}\n")  # type: ignore
+    for i, track in enumerate(user_release.tracklist):  # type: ignore
         print(f"{i+1}. {track.title}")
 
 
@@ -61,8 +67,6 @@ def main():
     """
     Main Functions
     """
-
-    # check_env()
 
     user_release = user_input(client)
 
@@ -88,6 +92,9 @@ def main():
 Loads the token from .env
 Creates the API client before running main
 """
+
+check_env()
+
 load_dotenv()
 TOKEN = os.environ["TOKEN"]
 client = discogs_client.Client("TestApp", user_token=TOKEN)

@@ -3,6 +3,14 @@ import discogs_client
 import os
 
 
+def check_env():
+    """
+    WIP
+    checks if the user has added their token to the .env
+    """
+    pass
+
+
 def user_input(client: discogs_client.Client) -> discogs_client.Release:
     """
     This functions asks the users to select a release from discogs
@@ -53,6 +61,9 @@ def main():
     """
     Main Functions
     """
+
+    # check_env()
+
     user_release = user_input(client)
 
     print_to_format(user_release)
